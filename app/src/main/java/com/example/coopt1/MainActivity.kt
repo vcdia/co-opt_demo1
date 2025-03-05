@@ -119,14 +119,13 @@ fun ExtendedFAB() {
 @Composable
 fun ToggleFAB() {
     val context = LocalContext.current
-    var isAddMode by remember { mutableStateOf(false) }
-
+    var isAddMode by remember { mutableStateOf(false) } // tracks the state/ current mode
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
         FloatingActionButton(
             onClick = {
-                isAddMode = !isAddMode
+                isAddMode = !isAddMode // sets state value to the opposite
                 Toast.makeText(context, if (isAddMode) "Add Mode" else "Edit Mode", Toast.LENGTH_SHORT).show()
             },
             modifier = Modifier
@@ -144,14 +143,13 @@ fun ToggleFAB() {
     }
 }
 
-
 @Composable
 fun ExpandableFAB() {
     val context = LocalContext.current
-    var isExpanded by remember { mutableStateOf(false) }  // Track whether the FAB is expanded or not
+    var isExpanded by remember { mutableStateOf(false) }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        // Show additional FABs when expended,
+        // Show additional FABs when expended
         if (isExpanded) {
             // Additional button 1
             SmallFloatingActionButton(
@@ -159,7 +157,7 @@ fun ExpandableFAB() {
                 modifier = Modifier
                     .padding(16.dp)
                     .align(Alignment.BottomEnd)
-                    .offset(y = (-80).dp), // positioning of the button above the main FAB
+                    .offset(y = (-80).dp), // position the button above the main FAB
                 containerColor = MaterialTheme.colorScheme.secondaryContainer,
                 contentColor = MaterialTheme.colorScheme.secondary
             ) {
@@ -179,7 +177,7 @@ fun ExpandableFAB() {
                 Icon(Icons.Filled.Email, contentDescription = "Action 2")
             }
 
-            // Additional FAB 3 (hidden when collapsed)
+            // Additional FAB 3
             SmallFloatingActionButton(
                 onClick = { Toast.makeText(context, "Action 3 clicked", Toast.LENGTH_SHORT).show() },
                 modifier = Modifier
