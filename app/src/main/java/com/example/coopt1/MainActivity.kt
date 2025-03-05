@@ -10,6 +10,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -31,8 +34,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             CoOpt1Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    FAB()
-
+                    //FAB()
+                    ExtendedFAB()
                 }
             }
         }
@@ -59,10 +62,19 @@ fun FAB() {
     }
 }
 
-@Preview(showBackground = true)
 @Composable
-fun DefaultPreview(){
-    CoOpt1Theme {
-        Example()
+fun ExtendedFAB() {
+
+    Box(
+        modifier = Modifier.fillMaxSize()
+    ){
+        ExtendedFloatingActionButton(
+            onClick = { /* to add */ },
+            modifier = Modifier
+                .padding(16.dp)
+                .align(Alignment.BottomEnd),
+            icon = { Icon(Icons.Filled.Edit, "Extended floating action button.") },
+            text = { Text(text = "Extended FAB") },
+        )
     }
 }
