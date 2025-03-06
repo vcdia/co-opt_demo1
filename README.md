@@ -1,4 +1,4 @@
-Demo 1: Simple examples of how to implement floating action buttons
+# Demo 1: Creating floating action buttons
 
 Resources used:
 - https://developer.android.com/develop/ui/compose/components/fab#additional_resources
